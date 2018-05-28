@@ -1,0 +1,80 @@
+#include<iostream>
+using namespace std;
+#define SIZE 50
+int front=0,rear=-1;
+char queue[50];
+
+void menu()
+{
+    cout<<"operation list\n";
+    cout<<"==============\n";
+    cout<<"1.enque\n";
+    cout<<"2.deque\n";
+    cout<<"3.print\n";
+    cout<<"4.exit\n";
+}
+void enqueue(char c)
+{
+    if(rear > SIZE-1){
+        printf("queue is full");
+    }
+    
+    else {
+        rear++;
+        queue[rear]= c;
+		
+    }
+    
+    return ;
+}
+
+void dequeue()
+{    char word;
+    if(front > rear){
+        printf("queue is EMPty");
+    }
+    else {
+        word = queue[front];
+        front ++;
+       }
+    return ;
+}
+
+void print()
+{
+    int i;
+    for(i=front;i<=rear;i++)
+    {
+        cout<<"->"<<queue[i];
+    }
+    cout<<"\n";
+    return ;
+}
+int main()
+{
+    int i;
+    char c;
+    while(1)
+    {
+        menu();
+        cout<<"enter your choice\n";
+        cin>>i;
+        switch(i)
+        {
+            case 1:
+            cout<<"enter character ";
+            cin>>c;
+            enqueue(c);
+            break;
+            case 2:
+            dequeue();
+            break;
+            case 3:
+            print();
+            break;
+            case 4:
+            return 0;
+        }
+    }
+    return 0;
+}

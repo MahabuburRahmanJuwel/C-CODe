@@ -1,0 +1,78 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct Node {
+	int data;
+	struct Node* next;
+};
+ 
+struct Node* front = NULL;
+struct Node* rear = NULL;
+
+void Enqueue(int x) {
+	struct Node* temp = 
+		(struct Node*)malloc(sizeof(struct Node));
+	temp->data =x; 
+	temp->next = NULL;
+	if(front == NULL && rear == NULL){
+		front = rear = temp;
+		return;
+	}
+	rear->next = temp;
+	rear = temp;
+}
+
+
+void Dequeue() {
+	struct Node* temp = front;
+	if(front == NULL) {
+		printf("Queue is Empty\n");
+		return;
+	}
+	if(front == rear) {
+		front = rear = NULL;
+	}
+	else {
+		front = front->next;
+	}
+	free(temp);
+}
+
+
+void Print() {
+	struct Node* temp = front;
+	while(temp != NULL) {
+		printf("%d ",temp->data);
+		temp = temp->next;
+	}
+	printf("\n");
+}
+
+
+	int main()
+{
+    int i;
+    int num;
+    while(1)
+    {
+      
+        cout<<"enter your choice\n";
+        cin>>i;
+        switch(i)
+        {
+            case 1:
+            cout<<"enter num ";
+            cin>>num;
+            Enqueue(num);
+            break;
+            case 2:
+            Dequeue();
+            break;
+            case 3:
+            Print();
+            break;
+            case 4:
+            return 0;
+        }
+    }
+	return 0;
+}
