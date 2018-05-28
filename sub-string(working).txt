@@ -1,0 +1,30 @@
+#include<stdio.h>
+int main (){
+	int i,j,k,flag=0,ret=0;
+	char str[30],str1[30];
+	gets(str);
+	gets(str1);
+
+	
+	for(i=0;str[i]!='\0';i++){
+		
+		if (str1[0]==str[i])
+		{
+			for(j=0;str1[j]!='\0';j++,i++){
+				if(str[i]==str1[j]){
+					flag++;}
+				if(str[i]!=str1[j]){
+					flag=-1;
+				
+					}
+			
+			}
+		}
+	}
+	if(flag==j){
+		printf("this is sub sting\n");
+	}
+	else{ printf("this is not sub sting\n");}
+
+return 0;
+}

@@ -1,0 +1,54 @@
+#include<stdio.h>
+
+struct player {
+	char name[30];
+	char country[30];
+	int run[3];
+	int wckt[3];
+	int point[3];
+};
+
+int main (){
+	struct player pl[100];
+	int i,j,k,m,run_point,max=0;
+
+	for(i=0;i<3;i++){
+		 gets(pl[i].name);
+		 gets(pl[i].country);
+		 for(j=0;j<1;j++){
+			 scanf("%d",&pl[i].run[j]);
+			 scanf("%d",&pl[i].wckt[j]);
+			 
+			 run_point=pl[i].run[j]/25;
+			 run_point=run_point*5;
+			 
+			 pl[i].point[j]=12*pl[i].wckt[j];
+			 pl[i].point[j]=pl[i].point[j]+run_point;
+			// pl[i].point[j]=pl[i].point[j]+pl[i].point[j]+pl[i].point[j];
+			 if(pl[i].point[j]>max){max=pl[i].point[j];
+			 k=i;
+			  }
+			 }
+		 
+		 printf("please input next player\n");
+		 getchar();
+	}
+
+	printf("here is  your player protfolio\n**************************** \n");
+	for(i=0;i<3;i++){
+		 puts(pl[i].name);
+		 puts(pl[i].country);
+		 for(j=0;j<1;j++){
+			 printf("%d\n",pl[i].run[j]);
+			 printf("%d\n",pl[i].wckt[j]);
+			  printf("point: %d\n",pl[i].point[j]);
+		 }
+		// printf("point: %d\n",pl[i].point[i]);
+		printf("new update next player\n");
+	}
+
+	
+		printf("today man of the series is\n");puts(pl[k].name);
+
+	return 0;
+}

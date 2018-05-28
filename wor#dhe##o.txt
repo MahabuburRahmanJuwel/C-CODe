@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<string.h>
+
+void str_ncpy(char s[30],char s1[30],int i){
+	int j,k;
+
+	for(j=0;j<30;j++){
+		if(s1[j]=='\0'){
+			for(k=0;k<i;k++){
+				s1[j]=s[k];
+				j++;}
+			break;
+			
+		}
+	}
+	s1[j]='\0';
+	for(i=0;s1[i]!='\0';i++){
+		if(s1[i]=='l' || s1[i]=='L'){
+			s1[i]='#';
+		}
+	}
+	puts(s1);
+}
+
+
+
+int main (){
+	char str[30],str1[30];
+	int i;
+
+	gets(str);
+	gets(str1);
+	scanf("%d",&i);
+	str_ncpy(str,str1,i);
+	return 0;
+}
