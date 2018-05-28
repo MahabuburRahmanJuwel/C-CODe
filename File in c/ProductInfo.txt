@@ -1,0 +1,5 @@
+01 Mouse 330 10 January 2017 3 5 0 
+02 Cereal 550 22 February 2017 0 0 0
+03 Bread 150 15 April 2017 10 5 16    
+04 Milk 600 20 August 2017 5 7 3    
+05 Juice 510 05 April 2017 1 2 0    
