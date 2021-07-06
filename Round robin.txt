@@ -1,0 +1,102 @@
+#include<stdio.h>
+
+int main ()
+{
+
+
+    int arr[4],arr1[4],hard[4],old[4];
+    double com_avg_time, avg_waiting_Time;
+    int totalTime =0, t = 0,sam = 0 ,qntm = 20,i;
+
+
+    for(i=0; i<4; i++)
+    {
+        scanf("%d",&arr[i]);
+        arr1[i]=arr[i];
+        hard[i]=0;
+        old[i]=0;
+    }
+
+
+
+
+    while (sam < 4)
+    {
+        sam = 0;
+        for( i=0; i<4; i++)
+        {
+            if(arr[i]>qntm)
+            {
+                arr[i]=arr[i]-qntm;
+                t=t+qntm;
+            }
+            else if(arr[i] == 0)
+            {
+                sam++;
+            }
+            else
+            {
+                sam++;
+                t=t+arr[i];
+                arr[i] =0;
+                totalTime =totalTime + t;
+            }
+        }
+
+        if(sam == 4)
+            break;
+    }
+
+    com_avg_time = totalTime/4.0;
+
+
+
+
+    totalTime = 0;
+    t = 0;
+    sam = 0;
+
+    while (sam < 4)
+    {
+        sam = 0;
+        for(i=0; i<4; i++)
+        {
+            if(arr1[i]>qntm)
+            {
+                hard[i] += t - old[i];
+
+                arr1[i] -=qntm;
+                t+=qntm;
+                old[i] = t;
+            }
+            else if(arr1[i] == 0)
+            {
+                sam++;
+            }
+            else
+            {
+                sam++;
+
+                hard[i] += t - old[i];
+
+                t+=arr1[i];
+                old[i] = t;
+                arr1[i] =0;
+            }
+        }
+
+        if(sam == 4)
+            break;
+    }
+
+    for( i=0; i<4; i++)
+    {
+        totalTime += hard[i];
+    }
+    avg_waiting_Time = totalTime/4.0;
+    printf("\ncomplition time = %.2lf\n",com_avg_time );
+    printf("avg _waiting_ time = %.2lf\n",avg_waiting_Time);
+
+    return 0;
+}
+
